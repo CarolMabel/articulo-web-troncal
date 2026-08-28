@@ -259,23 +259,38 @@
   .table-caption { font-size: 0.82rem; color: var(--ink-faint); font-style: italic; margin-top: 0.5rem; }
 
 
-  /* ===== IMÁGENES: tamaño máximo 600px (ancho y alto) ===== */
   .img-grid {
     display: grid;
     gap: 0.8rem;
-    margin: 1.8rem 0;
-    justify-content: center;
+    margin: 1.8rem auto;
+    max-width: 400px;
   }
-  .img-grid-2 { grid-template-columns: repeat(2, minmax(0, 300px)); }
-  .img-grid-3 { grid-template-columns: repeat(3, minmax(0, 200px)); }
+  .img-grid-2 { grid-template-columns: 1fr 1fr; }
+  .img-grid-3 { grid-template-columns: repeat(3, 1fr); max-width: 540px; }
   .img-grid figure { margin: 0; }
-  .img-grid img,
-  figure.img-single img,
+  .img-grid img {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--sage-wash);
+  }
   .figures-block img {
     width: 100%;
+    aspect-ratio: 4 / 3;
     height: auto;
-    max-width: 600px;
-    max-height: 550px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--sage-wash);
+  }
+  figure.img-single img {
+    width: 100%;
+    height: auto;
     object-fit: cover;
     display: block;
     border: 1px solid var(--rule);
@@ -284,9 +299,16 @@
   }
   figure.img-single {
     margin: 1.8rem 0;
-    max-width: 600px;
+    max-width: 280px;
   }
+  figure.img-single img { aspect-ratio: 9 / 16; }
   figure.img-single.centered { margin-left: auto; margin-right: auto; }
+  figure.img-single.img-large {
+    max-width: 860px;
+  }
+  figure.img-single.img-large img {
+    aspect-ratio: 16 / 9;
+  }
   figcaption {
     font-family: var(--mono);
     font-size: 0.7rem;
@@ -300,13 +322,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.6rem 1.2rem;
-    margin: 1.8rem 0;
+    margin: 1.8rem auto;
+    max-width: 640px;
   }
-  .figures-block figure { margin: 0; max-width: 600px; }
+  .figures-block figure { margin: 0; }
 
   @media (max-width: 600px) {
     .img-grid-2, .img-grid-3, .figures-block { grid-template-columns: 1fr; }
-    .img-grid img, figure.img-single img, .figures-block img { max-width: 100%; }
   }
 
 
@@ -454,12 +476,10 @@
 
     <h3>Datos, poder y algoritmos</h3>
     <div class="body-text">
-      <p>Desde una perspectiva crítica, D'Ignazio y Klein (2020) plantean que los datos deben comprenderse en relación con el poder.</p>
+      <p>Desde una perspectiva crítica, D'Ignazio y Klein (2020) plantean que los datos deben comprenderse en relación con el poder. Su propuesta de Data Feminism cuestiona quién produce los datos, qué realidades son representadas y cuáles son discriminadas.
+      D'Ignazio  &amp; Klein, 2020</p>
     </div>
-    <blockquote>
-      Su propuesta de Data Feminism cuestiona quién produce los datos, qué realidades son representadas y cuáles son discriminadas.
-      D'Ignazio &amp; Klein, 2020
-    </blockquote>
+  
     <div class="body-text">
       <p>En las plataformas digitales, esta problemática puede observarse en los algoritmos, que seleccionan y ordenan contenidos a partir de comportamientos medibles como visualizaciones, interacciones y tiempo de permanencia. Por lo tanto, aquello que aparece reiteradamente ante un usuario no constituye necesariamente una representación proporcional de los contenidos existentes, sino el resultado de procesos de selección mediados por la infraestructura algorítmica.</p>
     </div>
@@ -572,7 +592,7 @@
       <p>Lo que los resultados permiten evidenciar es que el sistema de recomendaciones puede generar un espacio donde contenidos inicialmente asociados al entretenimiento, la belleza o el estilo de vida aparecen próximos a discursos de carácter ideológico. Así, la repetición y conexión entre publicaciones puede contribuir a que determinadas representaciones de feminidad y relaciones tradicionales adquieran mayor visibilidad dentro del entorno digital.</p>
     </div>
 
-    <figure class="img-single centered">
+    <figure class="img-single centered img-large">
         <img src="./img/img20.webp"/>
       <figcaption>Método de visualización</figcaption>
     </figure>
